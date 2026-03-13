@@ -1,0 +1,233 @@
+[gd_scene load_steps=19 format=3 uid="uid://c4363sokrqdc2"]
+
+[ext_resource type="Script" path="res://Area2D.gd" id="1_ytxet"]
+[ext_resource type="Texture2D" uid="uid://ckmsnnluww1o" path="res://New folder/Enemies/Bee/Hit (36x34).png" id="2_dx6pb"]
+[ext_resource type="Texture2D" uid="uid://ccedlmbywh8mu" path="res://New folder/Enemies/Bee/Idle (36x34).png" id="3_23nji"]
+[ext_resource type="Texture2D" uid="uid://cmxkw7q6inxgg" path="res://New folder/Enemies/Bee/Bullet.png" id="4_864a0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t8u6"]
+atlas = ExtResource("2_dx6pb")
+region = Rect2(0, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_si28w"]
+atlas = ExtResource("2_dx6pb")
+region = Rect2(36, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1srut"]
+atlas = ExtResource("2_dx6pb")
+region = Rect2(72, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byig0"]
+atlas = ExtResource("2_dx6pb")
+region = Rect2(108, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leyil"]
+atlas = ExtResource("2_dx6pb")
+region = Rect2(144, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyi2m"]
+atlas = ExtResource("3_23nji")
+region = Rect2(0, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fellf"]
+atlas = ExtResource("3_23nji")
+region = Rect2(36, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6oqt"]
+atlas = ExtResource("3_23nji")
+region = Rect2(72, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajg8y"]
+atlas = ExtResource("3_23nji")
+region = Rect2(108, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haix7"]
+atlas = ExtResource("3_23nji")
+region = Rect2(144, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmuoi"]
+atlas = ExtResource("3_23nji")
+region = Rect2(180, 0, 36, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t2qnm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1t8u6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_si28w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1srut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byig0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leyil")
+}],
+"loop": false,
+"name": &"DIE",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyi2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fellf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6oqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajg8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haix7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmuoi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0s8j"]
+size = Vector2(19, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_661g6"]
+size = Vector2(125, 47)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_ytxet")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_t2qnm")
+animation = &"DIE"
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_b0s8j")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1, 19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, 13)
+shape = SubResource("RectangleShape2D_661g6")
+
+[node name="Bullet" type="Sprite2D" parent="Area2D"]
+position = Vector2(0, -1.5)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet2" type="Sprite2D" parent="Area2D"]
+position = Vector2(18, -1)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet3" type="Sprite2D" parent="Area2D"]
+position = Vector2(37, -1)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet4" type="Sprite2D" parent="Area2D"]
+position = Vector2(55, -2)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet5" type="Sprite2D" parent="Area2D"]
+position = Vector2(-19, -3)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet6" type="Sprite2D" parent="Area2D"]
+position = Vector2(-35, -2)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet7" type="Sprite2D" parent="Area2D"]
+position = Vector2(-51, -2)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet8" type="Sprite2D" parent="Area2D"]
+position = Vector2(-51, 17)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet9" type="Sprite2D" parent="Area2D"]
+position = Vector2(-34, 19)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet10" type="Sprite2D" parent="Area2D"]
+position = Vector2(-19, 19)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet11" type="Sprite2D" parent="Area2D"]
+position = Vector2(-1, 19)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet12" type="Sprite2D" parent="Area2D"]
+position = Vector2(16, 19)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet13" type="Sprite2D" parent="Area2D"]
+position = Vector2(36, 18)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet14" type="Sprite2D" parent="Area2D"]
+position = Vector2(53, 20)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet15" type="Sprite2D" parent="Area2D"]
+position = Vector2(47, 33)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet16" type="Sprite2D" parent="Area2D"]
+position = Vector2(29, 34)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet17" type="Sprite2D" parent="Area2D"]
+position = Vector2(14, 35)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet18" type="Sprite2D" parent="Area2D"]
+position = Vector2(-4, 35)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet19" type="Sprite2D" parent="Area2D"]
+position = Vector2(-22, 34)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet20" type="Sprite2D" parent="Area2D"]
+position = Vector2(-40, 33)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[node name="Bullet21" type="Sprite2D" parent="Area2D"]
+position = Vector2(-55, 32)
+scale = Vector2(1.25, 1.4375)
+texture = ExtResource("4_864a0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

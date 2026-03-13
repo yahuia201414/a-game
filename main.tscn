@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://cdyhbjpg2cqfr"]
+
+[ext_resource type="Script" path="res://s.gd" id="1_ysi0t"]
+[ext_resource type="Texture2D" uid="uid://ddyrhtb55jla6" path="res://Free/Background/Green.png" id="2_tddj1"]
+[ext_resource type="Texture2D" uid="uid://dtr5vycrb7in8" path="res://Free/Terrain/Terrain (16x16).png" id="3_xyqxq"]
+[ext_resource type="Texture2D" uid="uid://c4np27pr7k2ll" path="res://Free/Main Characters/Appearing (96x96).png" id="4_s1i30"]
+[ext_resource type="Texture2D" uid="uid://h5eis8qsfti7" path="res://Free/Main Characters/Mask Dude/Idle (32x32).png" id="5_rbock"]
+[ext_resource type="Texture2D" uid="uid://co7t612lutais" path="res://Free/Main Characters/Ninja Frog/Idle (32x32).png" id="6_xxcmm"]
+[ext_resource type="Texture2D" uid="uid://d3yrf8t4swlkc" path="res://Free/Main Characters/Pink Man/Idle (32x32).png" id="7_bj0tv"]
+[ext_resource type="Texture2D" uid="uid://c6okuq8ohchjr" path="res://Free/Main Characters/Virtual Guy/Idle (32x32).png" id="8_yffcd"]
+[ext_resource type="Texture2D" uid="uid://ws0lxsh3jq6t" path="res://Free/Main Characters/Virtual Guy/Hit (32x32).png" id="9_g5bha"]
+[ext_resource type="Texture2D" uid="uid://d232rgxjiw6ws" path="res://Free/Main Characters/Pink Man/Hit (32x32).png" id="10_cqoiu"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ysi0t")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1147.0
+offset_bottom = 659.0
+texture = ExtResource("2_tddj1")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 113.0
+offset_right = 459.0
+offset_bottom = 139.0
+text = "pixel adventure"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 172.0
+offset_right = 761.0
+offset_bottom = 356.0
+text = "play"
+icon = ExtResource("3_xyqxq")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 435.0
+offset_right = 943.0
+offset_bottom = 539.0
+text = "exit
+"
+icon = ExtResource("4_s1i30")
+
+[node name="Idle(32x32)" type="Sprite2D" parent="."]
+position = Vector2(192, 397)
+texture = ExtResource("5_rbock")
+
+[node name="Idle(32x32)2" type="Sprite2D" parent="."]
+position = Vector2(183, 87)
+texture = ExtResource("6_xxcmm")
+
+[node name="Idle(32x32)3" type="Sprite2D" parent="."]
+position = Vector2(970, 401)
+texture = ExtResource("7_bj0tv")
+
+[node name="Idle(32x32)4" type="Sprite2D" parent="."]
+position = Vector2(943, 91)
+texture = ExtResource("8_yffcd")
+
+[node name="Hit(32x32)" type="Sprite2D" parent="."]
+position = Vector2(121, 586)
+texture = ExtResource("9_g5bha")
+
+[node name="Hit(32x32)2" type="Sprite2D" parent="."]
+position = Vector2(417, 587)
+texture = ExtResource("10_cqoiu")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

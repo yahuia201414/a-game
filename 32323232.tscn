@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://dhodlyud4lolo"]
+
+[ext_resource type="Script" path="res://434.gd" id="1_8p1hq"]
+[ext_resource type="Texture2D" uid="uid://co8hscyc5fvj8" path="res://New folder/Enemies/Bat/Flying (46x30).png" id="2_ps8mh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ydlpm"]
+radius = 14.0357
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epwft"]
+atlas = ExtResource("2_ps8mh")
+region = Rect2(0, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rar3d"]
+atlas = ExtResource("2_ps8mh")
+region = Rect2(46, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1ri7"]
+atlas = ExtResource("2_ps8mh")
+region = Rect2(92, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o32gi"]
+atlas = ExtResource("2_ps8mh")
+region = Rect2(138, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2cct"]
+atlas = ExtResource("2_ps8mh")
+region = Rect2(184, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn84t"]
+atlas = ExtResource("2_ps8mh")
+region = Rect2(230, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vr5x"]
+atlas = ExtResource("2_ps8mh")
+region = Rect2(276, 0, 46, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dp0ca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epwft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rar3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1ri7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o32gi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2cct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn84t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vr5x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3x7g2"]
+size = Vector2(20, 11.7424)
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(2.72, 2.64)
+script = ExtResource("1_8p1hq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ydlpm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_dp0ca")
+autoplay = "default"
+frame_progress = 0.365874
+
+[node name="TopDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopDetector"]
+position = Vector2(-0.735294, -7.76515)
+shape = SubResource("RectangleShape2D_3x7g2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
